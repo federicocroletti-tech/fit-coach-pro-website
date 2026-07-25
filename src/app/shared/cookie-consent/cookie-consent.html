@@ -1,0 +1,45 @@
+@if (isVisible()) {
+  <section class="cookie-consent" role="dialog" aria-modal="false" aria-labelledby="cookie-title">
+    <div class="cookie-panel">
+      <h2 id="cookie-title">Preferenze cookie</h2>
+      <p>
+        Usiamo cookie necessari per far funzionare il sito. Analytics e marketing restano disattivati finché non dai consenso.
+      </p>
+
+      <form class="cookie-options" [formGroup]="preferencesForm">
+        <label class="toggle-row">
+          <input type="checkbox" formControlName="necessary">
+          <span>
+            <strong>Necessari</strong>
+            <small>Sempre attivi per sicurezza, consenso e navigazione.</small>
+          </span>
+        </label>
+
+        <label class="toggle-row">
+          <input type="checkbox" formControlName="analytics">
+          <span>
+            <strong>Analytics</strong>
+            <small>Statistiche aggregate, attivabili solo dopo consenso.</small>
+          </span>
+        </label>
+
+        <label class="toggle-row">
+          <input type="checkbox" formControlName="marketing">
+          <span>
+            <strong>Marketing</strong>
+            <small>Misurazione campagne e contenuti promozionali.</small>
+          </span>
+        </label>
+      </form>
+
+      <div class="cookie-actions">
+        <button class="primary" type="button" (click)="acceptAll()">Accetta tutto</button>
+        <button type="button" (click)="savePreferences()">Salva preferenze</button>
+        <button type="button" (click)="rejectOptional()">Solo necessari</button>
+        @if (hasStoredPreferences()) {
+          <button type="button" (click)="closePanel()">Chiudi</button>
+        }
+      </div>
+    </div>
+  </section>
+}

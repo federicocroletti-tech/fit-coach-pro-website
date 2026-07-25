@@ -1,0 +1,35 @@
+<div class="site-shell">
+  <header class="site-header" aria-label="Navigazione principale">
+    <a class="brand-mark" routerLink="/" aria-label="Fit Coach Pro home">
+      <span>Fit</span>
+      <strong>Coach Pro</strong>
+    </a>
+
+    <nav class="site-nav" aria-label="Pagine principali">
+      <a routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+      <a routerLink="/prenota" routerLinkActive="is-active">Prenota</a>
+      <a routerLink="/privacy-cookie" routerLinkActive="is-active">Privacy</a>
+    </nav>
+
+    <a class="header-cta" routerLink="/prenota">Consulenza</a>
+  </header>
+
+  <main class="site-main">
+    <router-outlet />
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <strong>Fit Coach Pro</strong>
+      <p>Personal training in palestra, outdoor e su appuntamento con Marco Vitali.</p>
+    </div>
+
+    <div class="footer-actions">
+      <a routerLink="/privacy-cookie">Privacy e cookie</a>
+      <button type="button" (click)="openCookiePreferences()">Preferenze cookie</button>
+      <span>© {{ currentYear }} Fit Coach Pro</span>
+    </div>
+  </footer>
+
+  <app-cookie-consent />
+</div>

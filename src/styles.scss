@@ -1,0 +1,742 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --ink: #171712;
+  --ink-soft: #3e4137;
+  --paper: #f7f3e8;
+  --paper-strong: #fffaf0;
+  --line: rgba(23, 23, 18, 0.16);
+  --acid: #d6ff3d;
+  --coral: #ff6847;
+  --teal: #0f716c;
+  --steel: #d9e2df;
+  --shadow: 0 24px 80px rgba(23, 23, 18, 0.14);
+  --radius: 8px;
+  --section: min(1120px, calc(100vw - 32px));
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 20% 0%, rgba(214, 255, 61, 0.2), transparent 34rem),
+    linear-gradient(135deg, #f7f3e8 0%, #eef1ea 48%, #f9efe7 100%);
+  font-family: 'Manrope', sans-serif;
+  line-height: 1.6;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.site-shell {
+  min-height: 100svh;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  width: min(1180px, calc(100vw - 24px));
+  margin: 12px auto 0;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: var(--radius);
+  background: rgba(247, 243, 232, 0.86);
+  box-shadow: 0 12px 42px rgba(23, 23, 18, 0.1);
+  backdrop-filter: blur(18px);
+}
+
+.brand-mark {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+.brand-mark span,
+.brand-mark strong {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  line-height: 1;
+}
+
+.brand-mark span {
+  color: var(--teal);
+}
+
+.site-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+.site-nav a,
+.header-cta,
+.button,
+.footer-actions button,
+.cookie-actions button,
+.form-card button {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.site-nav a {
+  padding: 0.55rem 0.8rem;
+  color: var(--ink-soft);
+  font-weight: 800;
+  font-size: 0.86rem;
+}
+
+.site-nav a.is-active,
+.site-nav a:hover {
+  color: var(--ink);
+  background: rgba(214, 255, 61, 0.46);
+  border-color: rgba(23, 23, 18, 0.2);
+}
+
+.header-cta,
+.button.primary,
+.form-card button[type='submit'] {
+  padding: 0.72rem 1rem;
+  color: #11130e;
+  background: var(--acid);
+  border-color: rgba(23, 23, 18, 0.24);
+  font-weight: 900;
+}
+
+.header-cta:hover,
+.button:hover,
+.form-card button[type='submit']:hover,
+.cookie-actions button:hover,
+.footer-actions button:hover {
+  transform: translateY(-2px);
+}
+
+.site-main {
+  min-height: 70svh;
+}
+
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  width: var(--section);
+  margin: 0 auto;
+  padding: 2.4rem 0 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.site-footer p {
+  max-width: 38rem;
+  margin: 0.25rem 0 0;
+  color: var(--ink-soft);
+}
+
+.footer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--ink-soft);
+}
+
+.footer-actions a,
+.footer-actions button {
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.footer-actions button {
+  padding: 0.55rem 0.75rem;
+  background: transparent;
+  cursor: pointer;
+}
+
+.hero-section {
+  position: relative;
+  display: grid;
+  align-items: end;
+  min-height: 82svh;
+  margin-top: -78px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(13, 17, 13, 0.82) 0%, rgba(13, 17, 13, 0.48) 48%, rgba(13, 17, 13, 0.18) 100%),
+    linear-gradient(0deg, rgba(13, 17, 13, 0.78) 0%, transparent 38%);
+}
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-content {
+  width: var(--section);
+  margin: 0 auto;
+  padding: 11rem 0 4.2rem;
+  color: var(--paper-strong);
+}
+
+.eyebrow {
+  margin: 0 0 0.8rem;
+  color: var(--acid);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  line-height: 0.96;
+}
+
+h1,
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+h1 {
+  max-width: 11ch;
+  font-size: clamp(5rem, 17vw, 12rem);
+}
+
+.hero-claim {
+  margin: 0.1rem 0 0.85rem;
+  color: var(--coral);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2rem, 5vw, 4.8rem);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.hero-copy {
+  max-width: 44rem;
+  margin: 0;
+  color: rgba(255, 250, 240, 0.86);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+.hero-actions,
+.section-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 1.5rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.78rem 1rem;
+  font-weight: 900;
+}
+
+.button.secondary {
+  color: var(--paper-strong);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.42);
+}
+
+.button.dark {
+  color: var(--paper-strong);
+  background: var(--ink);
+}
+
+.section {
+  width: var(--section);
+  margin: 0 auto;
+  padding: clamp(3.2rem, 7vw, 6rem) 0;
+}
+
+.section-header {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(18rem, 0.7fr);
+  gap: 2rem;
+  align-items: end;
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  max-width: 12ch;
+  font-size: clamp(3.2rem, 8vw, 7rem);
+}
+
+.section-lead {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+}
+
+.stats-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--line);
+}
+
+.stat-item,
+.service-card,
+.step-card,
+.testimonial-card,
+.form-card,
+.info-panel,
+.policy-block,
+.cookie-panel {
+  background: rgba(255, 250, 240, 0.78);
+  border-radius: var(--radius);
+}
+
+.stat-item {
+  padding: 1.2rem;
+}
+
+.stat-item strong {
+  display: block;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  line-height: 0.9;
+  letter-spacing: 0;
+}
+
+.stat-item span {
+  color: var(--ink-soft);
+  font-weight: 800;
+}
+
+.service-grid,
+.method-grid,
+.testimonial-grid,
+.focus-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.service-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.service-card,
+.step-card,
+.testimonial-card,
+.policy-block {
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+}
+
+.service-card h3,
+.step-card h3,
+.testimonial-card strong,
+.policy-block h2 {
+  margin: 0 0 0.65rem;
+  font-size: 1.08rem;
+}
+
+.service-card p,
+.step-card p,
+.testimonial-card p,
+.policy-block p,
+.policy-block li {
+  color: var(--ink-soft);
+}
+
+.coach-band {
+  display: grid;
+  grid-template-columns: minmax(0, 0.86fr) minmax(18rem, 1fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+.coach-band img,
+.booking-media img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius);
+  object-fit: cover;
+  box-shadow: var(--shadow);
+}
+
+.coach-copy p {
+  color: var(--ink-soft);
+}
+
+.focus-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.focus-pill {
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--ink);
+  color: var(--paper-strong);
+  font-weight: 900;
+}
+
+.method-grid {
+  grid-template-columns: repeat(4, 1fr);
+  counter-reset: step;
+}
+
+.step-card {
+  position: relative;
+  padding-top: 3.2rem;
+}
+
+.step-card::before {
+  counter-increment: step;
+  content: counter(step, decimal-leading-zero);
+  position: absolute;
+  top: 1rem;
+  left: 1.2rem;
+  color: var(--teal);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.testimonial-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.testimonial-card {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.testimonial-card p {
+  margin: 0;
+}
+
+.cta-band {
+  width: min(1180px, calc(100vw - 24px));
+  margin: 0 auto 3rem;
+  padding: clamp(2rem, 5vw, 4rem);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(120deg, rgba(214, 255, 61, 0.82), rgba(255, 104, 71, 0.8)),
+    var(--acid);
+}
+
+.cta-band h2 {
+  max-width: 12ch;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3.4rem, 9vw, 7.5rem);
+  letter-spacing: 0;
+}
+
+.cta-band p {
+  max-width: 44rem;
+  color: rgba(23, 23, 18, 0.78);
+  font-weight: 700;
+}
+
+.page-hero {
+  width: var(--section);
+  margin: 0 auto;
+  padding: clamp(4rem, 9vw, 7rem) 0 2rem;
+}
+
+.page-hero h1 {
+  max-width: 12ch;
+  color: var(--ink);
+  font-size: clamp(4.2rem, 11vw, 9rem);
+}
+
+.page-hero p {
+  max-width: 48rem;
+  margin: 1rem 0 0;
+  color: var(--ink-soft);
+  font-size: 1.1rem;
+}
+
+.booking-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(20rem, 1fr);
+  gap: 2rem;
+  align-items: start;
+  width: var(--section);
+  margin: 0 auto;
+  padding: 1rem 0 clamp(4rem, 8vw, 6rem);
+}
+
+.info-panel {
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+}
+
+.info-panel ul,
+.policy-block ul {
+  margin: 1rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.form-card {
+  padding: clamp(1.2rem, 3vw, 2rem);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.form-field,
+.checkbox-field {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.form-field.full,
+.checkbox-field,
+.form-card button[type='submit'],
+.form-success {
+  grid-column: 1 / -1;
+}
+
+.form-field label,
+.checkbox-field span {
+  font-weight: 900;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.8rem;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid rgba(23, 23, 18, 0.22);
+  border-radius: var(--radius);
+}
+
+.form-field textarea {
+  min-height: 128px;
+  resize: vertical;
+}
+
+.checkbox-field {
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  color: var(--ink-soft);
+}
+
+.checkbox-field input,
+.toggle-row input {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: var(--teal);
+}
+
+.field-error {
+  color: #a73422;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.form-success {
+  padding: 0.9rem;
+  border-radius: var(--radius);
+  background: rgba(15, 113, 108, 0.12);
+  color: var(--teal);
+  font-weight: 900;
+}
+
+.policy-layout {
+  display: grid;
+  gap: 1rem;
+  width: var(--section);
+  margin: 0 auto;
+  padding: 1rem 0 clamp(4rem, 8vw, 6rem);
+}
+
+.policy-note {
+  padding: 1rem;
+  border-left: 6px solid var(--coral);
+  border-radius: var(--radius);
+  background: rgba(255, 104, 71, 0.12);
+  font-weight: 800;
+}
+
+.cookie-consent {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 40;
+  width: min(520px, calc(100vw - 2rem));
+}
+
+.cookie-panel {
+  padding: 1rem;
+  border: 1px solid rgba(23, 23, 18, 0.18);
+  box-shadow: var(--shadow);
+}
+
+.cookie-panel h2 {
+  font-size: 1.2rem;
+}
+
+.cookie-panel p {
+  margin: 0.45rem 0 0;
+  color: var(--ink-soft);
+}
+
+.cookie-options {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+
+.toggle-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.75rem;
+  align-items: start;
+  padding: 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.52);
+}
+
+.toggle-row strong {
+  display: block;
+}
+
+.toggle-row small {
+  display: block;
+  color: var(--ink-soft);
+}
+
+.cookie-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.cookie-actions button {
+  min-height: 42px;
+  padding: 0.6rem 0.8rem;
+  background: rgba(255, 255, 255, 0.66);
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.cookie-actions .primary {
+  background: var(--acid);
+}
+
+@media (max-width: 860px) {
+  .site-header {
+    grid-template-columns: 1fr auto;
+  }
+
+  .site-nav {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+    overflow-x: auto;
+  }
+
+  .hero-section {
+    min-height: 78svh;
+  }
+
+  .hero-content {
+    padding-bottom: 3rem;
+  }
+
+  .section-header,
+  .coach-band,
+  .booking-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .site-footer {
+    display: grid;
+  }
+
+  .service-grid,
+  .method-grid,
+  .testimonial-grid,
+  .focus-grid,
+  .stats-strip,
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 520px) {
+  :root {
+    --section: min(100vw - 24px, 1120px);
+  }
+
+  .header-cta {
+    padding: 0.62rem 0.7rem;
+  }
+
+  .site-nav a {
+    padding: 0.5rem 0.68rem;
+  }
+
+  .hero-copy,
+  .page-hero p {
+    font-size: 1rem;
+  }
+}

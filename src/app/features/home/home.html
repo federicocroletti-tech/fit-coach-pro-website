@@ -1,0 +1,129 @@
+<section class="hero-section">
+  <img class="hero-image" [src]="heroImage" alt="Personal trainer che guida un allenamento funzionale in palestra">
+  <div class="hero-content">
+    <p class="eyebrow">Marco Vitali · Personal trainer</p>
+    <h1>Fit Coach Pro</h1>
+    <p class="hero-claim">Allenati meglio. Vivi più forte.</p>
+    <p class="hero-copy">
+      Percorsi su misura in palestra, outdoor e privatamente su appuntamento per costruire forza, forma fisica,
+      postura e continuità senza programmi generici.
+    </p>
+    <div class="hero-actions">
+      <a class="button primary" routerLink="/prenota">Prenota una consulenza</a>
+      <a class="button secondary" href="#servizi">Vedi i servizi</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-label="Risultati principali">
+  <div class="stats-strip">
+    <div class="stat-item">
+      <strong>1:1</strong>
+      <span>sessioni private su appuntamento</span>
+    </div>
+    <div class="stat-item">
+      <strong>6</strong>
+      <span>servizi per obiettivi e contesti diversi</span>
+    </div>
+    <div class="stat-item">
+      <strong>4</strong>
+      <span>fasi di lavoro sempre tracciabili</span>
+    </div>
+  </div>
+</section>
+
+<section class="section coach-band">
+  <div class="coach-copy">
+    <p class="eyebrow">Chi è il coach</p>
+    <h2 class="section-title">Marco Vitali</h2>
+    <p>
+      Marco lavora con persone che vogliono allenarsi con metodo: principianti che cercano sicurezza, sportivi che
+      vogliono spingere meglio, professionisti con poco tempo e palestre che desiderano un supporto strutturato.
+    </p>
+    <div class="section-actions">
+      <a class="button dark" routerLink="/prenota">Parla con Marco</a>
+    </div>
+  </div>
+  <img [src]="coachImage" alt="Marco Vitali durante una sessione di personal training con kettlebell">
+</section>
+
+<section class="section" id="servizi">
+  <div class="section-header">
+    <h2 class="section-title">Servizi</h2>
+    <p class="section-lead">
+      Dalla sala pesi al parco, ogni percorso parte da obiettivi reali e da una progressione che puoi sostenere.
+    </p>
+  </div>
+
+  <div class="service-grid">
+    @for (service of services; track service.title) {
+      <article class="service-card">
+        <h3>{{ service.title }}</h3>
+        <p>{{ service.body }}</p>
+      </article>
+    }
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-header">
+    <h2 class="section-title">Obiettivi</h2>
+    <p class="section-lead">
+      Il programma non cambia persona: cambia il modo in cui ti alleni, recuperi e misuri i progressi.
+    </p>
+  </div>
+
+  <div class="focus-grid">
+    @for (area of focusAreas; track area) {
+      <div class="focus-pill">{{ area }}</div>
+    }
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-header">
+    <h2 class="section-title">Metodo</h2>
+    <p class="section-lead">
+      Un processo semplice da seguire e abbastanza rigoroso da farti capire dove stai migliorando.
+    </p>
+  </div>
+
+  <div class="method-grid">
+    @for (step of methodSteps; track step.title) {
+      <article class="step-card">
+        <h3>{{ step.title }}</h3>
+        <p>{{ step.body }}</p>
+      </article>
+    }
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-header">
+    <h2 class="section-title">Voci reali</h2>
+    <p class="section-lead">Testimonianze dimostrative per mostrare tono e struttura del sito finale.</p>
+  </div>
+
+  <div class="testimonial-grid">
+    @for (testimonial of testimonials; track testimonial.name) {
+      <figure class="testimonial-card">
+        <p>“{{ testimonial.quote }}”</p>
+        <figcaption>
+          <strong>{{ testimonial.name }}</strong><br>
+          <span>{{ testimonial.context }}</span>
+        </figcaption>
+      </figure>
+    }
+  </div>
+</section>
+
+<section class="cta-band">
+  <h2>Parti da una consulenza</h2>
+  <p>
+    Racconta obiettivo, disponibilità e contesto di allenamento. Riceverai una proposta iniziale chiara e adatta al
+    tuo punto di partenza.
+  </p>
+  <div class="section-actions">
+    <a class="button dark" routerLink="/prenota">Prenota ora</a>
+  </div>
+</section>
