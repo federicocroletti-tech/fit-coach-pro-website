@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: fit-coach-pro-website
+    runtime: static
+    plan: free
+    buildCommand: npm ci && npm run build
+    staticPublishPath: ./dist/fit-coach-pro-website/browser
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
