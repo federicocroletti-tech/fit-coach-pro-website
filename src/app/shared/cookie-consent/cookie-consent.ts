@@ -1,4 +1,5 @@
-import { Component, DestroyRef, OnInit, computed, inject, signal } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { afterNextRender, Component, DestroyRef, computed, inject, PLATFORM_ID, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 interface CookiePreferences {
@@ -16,8 +17,9 @@ const COOKIE_CONSENT_KEY = 'fit-coach-pro-cookie-preferences';
   imports: [ReactiveFormsModule],
   templateUrl: './cookie-consent.html'
 })
-export class CookieConsentComponent implements OnInit {
+export class CookieConsentComponent {
   private readonly destroyRef = inject(DestroyRef);
+  private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
 
   protected readonly hasStoredPreferences = signal(false);
   protected readonly isPanelOpen = signal(false);
@@ -28,12 +30,16 @@ export class CookieConsentComponent implements OnInit {
     marketing: new FormControl(false, { nonNullable: true })
   });
 
-  ngOnInit(): void {
-    this.loadPreferences();
+  constructor() {
+    if (!this.isBrowser) return;
 
-    const openSettings = (): void => this.openSettings();
-    window.addEventListener('fitcoach-cookie-settings', openSettings);
-    this.destroyRef.onDestroy(() => window.removeEventListener('fitcoach-cookie-settings', openSettings));
+    afterNextRender(() => {
+      this.loadPreferences();
+
+      const openSettings = (): void => this.openSettings();
+      window.addEventListener('fitcoach-cookie-settings', openSettings);
+      this.destroyRef.onDestroy(() => window.removeEventListener('fitcoach-cookie-settings', openSettings));
+    });
   }
 
   protected acceptAll(): void {
